@@ -1,0 +1,6 @@
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\bin\Debug\ConsoleCalculator.exe.config
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\bin\Debug\ConsoleCalculator.exe
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\bin\Debug\ConsoleCalculator.pdb
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\obj\Debug\ConsoleCalculator.csprojResolveAssemblyReference.cache
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\obj\Debug\ConsoleCalculator.exe
+E:\Francis\Documents\C#\Homework\FirstClass\ConsoleCalculator\ConsoleCalculator\obj\Debug\ConsoleCalculator.pdb
