@@ -22,10 +22,10 @@ namespace ConsoleCalculator
         {
             Console.WriteLine(tip);
             string a = Console.ReadLine();
+            double number = 0.0;
             try
             {
-                double number = double.Parse(a);
-                return number;
+                number = double.Parse(a);
             }
             catch (FormatException)
             {
@@ -37,7 +37,7 @@ namespace ConsoleCalculator
                 Console.WriteLine("未输入操作数,请重新输入");
                 getNumber(tip);
             }
-            return 0.0;
+            return number;
         }
 
         static string getOperator(string tip, double secondNumber)
