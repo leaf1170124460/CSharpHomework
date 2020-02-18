@@ -1,9 +1,0 @@
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\bin\Debug\FormCalculator.exe.config
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\bin\Debug\FormCalculator.exe
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\bin\Debug\FormCalculator.pdb
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.csprojResolveAssemblyReference.cache
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.Form1.resources
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.Properties.Resources.resources
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.csproj.GenerateResource.Cache
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.exe
-E:\Francis\Documents\C#\Homework\FirstClass\FormCalculator\obj\Debug\FormCalculator.pdb
