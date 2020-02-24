@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCalculator", "ConsoleCalculator\ConsoleCalculator.csproj", "{6466CCE4-3D24-48CF-80BD-97963C3C8DDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormCalculator", "..\FormCalculator\FormCalculator.csproj", "{DEEF1921-470B-4D2A-A32D-2E478D1C06C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormCalculator", "FormCalculator\FormCalculator.csproj", "{DEEF1921-470B-4D2A-A32D-2E478D1C06C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
