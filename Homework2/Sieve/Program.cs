@@ -42,17 +42,16 @@ namespace Sieve
             int count = 0;                                      //count用于控制输出格式，5个为一行
             for (int i = 0; i < isPrime.Length; i++)
             {
-                if (isPrime[i] == true)
+                if (isPrime[i] == false)
                 {
-                    count++;
-                    if (count % 5 != 0)
-                    {
-                        Console.Write($"{i}\t");
-                    }
-                    else
-                    {
-                        Console.Write($"{i}\n");
-                    }
+                    continue;
+                }
+				
+				count++;
+				Console.Write($"{i}\t");
+                if (count % 5 == 0)
+                {
+                    Console.Write("\n");
                 }
             }
             Console.Write("\n");
