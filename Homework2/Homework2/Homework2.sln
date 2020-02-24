@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeFactor", "PrimeFactor\PrimeFactor.csproj", "{0D1969CF-D36C-49C0-9BA7-4D6F7C1C04CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayOperation", "ArrayOperation\ArrayOperation.csproj", "{889D7025-C096-406C-A03B-EE956CE12F60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sieve", "Sieve\Sieve.csproj", "{9AB35FB8-57C9-4645-BD46-61EBD78D2F34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D1969CF-D36C-49C0-9BA7-4D6F7C1C04CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D1969CF-D36C-49C0-9BA7-4D6F7C1C04CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D1969CF-D36C-49C0-9BA7-4D6F7C1C04CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D1969CF-D36C-49C0-9BA7-4D6F7C1C04CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{889D7025-C096-406C-A03B-EE956CE12F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{889D7025-C096-406C-A03B-EE956CE12F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{889D7025-C096-406C-A03B-EE956CE12F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{889D7025-C096-406C-A03B-EE956CE12F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AB35FB8-57C9-4645-BD46-61EBD78D2F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AB35FB8-57C9-4645-BD46-61EBD78D2F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AB35FB8-57C9-4645-BD46-61EBD78D2F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AB35FB8-57C9-4645-BD46-61EBD78D2F34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
