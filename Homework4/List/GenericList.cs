@@ -1,5 +1,6 @@
 using System;
-namespace List{
+namespace List
+{
     // Á´±í½Úµã
     public class Node<T>
     {
@@ -26,11 +27,10 @@ namespace List{
 
         public Node<T> Head
         {
-            get =>head
+            get { return head; }
         }
-    }
 
-    public void Add(T t)
+        public void Add(T t)
         {
             Node<T> n = new Node<T>(t);
             if (tail == null)
@@ -41,6 +41,14 @@ namespace List{
             {
                 tail.Next = n;
                 tail = n;
+            }
+        }
+
+        public void ForEach(Action<T> action)
+        {
+            for(Node<T> node = head; node != null; node = node.Next)
+            {
+                action(node.Data);
             }
         }
     }

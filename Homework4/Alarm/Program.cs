@@ -13,7 +13,7 @@ namespace Alarm
             Clock myClock = new Clock();
             myClock.AlarmEvent += ClockAlarm;          //注册响铃方法 
             myClock.TickEvent += ClockTick;            //注册滴答方法
-            myClock.SetAlarm(11, 7, 10); 
+            myClock.SetAlarm(11, 28, 00); 
             myClock.StartWork();
         }
 

@@ -26,6 +26,12 @@ namespace Alarm
         //开始工作
         public void StartWork()
         {
+            //事件为空直接退出
+            if (TickEvent == null || AlarmEvent == null)
+            {
+                return;
+            }
+
             while (true)
             {
                 int hour=DateTime.Now.Hour;
@@ -40,7 +46,7 @@ namespace Alarm
             }
         }
 
-        //闹铃
+        //响铃
         public void Alarm(int hour,int minute,int second)
         {
             AlarmEventArgs args = new AlarmEventArgs() { Hour = hour, Minute = minute, Second = second };

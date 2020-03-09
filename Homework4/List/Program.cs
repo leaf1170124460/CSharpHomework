@@ -10,37 +10,14 @@ namespace List
     {
         static void Main(string[] args)
         {
-            // 整型List
-            GenericList<int> intlist = new GenericList<int>();
-            for (int x = 0; x < 10; x++)
-            {
-                intlist.Add(x);
-            }
-            for (Node<int> node = intlist.Head;
-                  node != null; node = node.Next)
-            {
-                Console.WriteLine(node.Data);
-            }
-
-            // 字符串型List
-            GenericList<string> strList = new GenericList<string>();
-            for (int x = 0; x < 10; x++)
-            {
-                strList.Add("str" + x);
-            }
-            for (Node<string> node = strList.Head;
-                    node != null; node = node.Next)
-            {
-                Console.WriteLine(node.Data);
-            }
-
-            List<int> list = new List<int>();
-            for(int i = 0; i < 10; i++)
+            GenericList<int> list = new GenericList<int>();
+            for(int i = 0; i < 100; i++)
             {
                 list.Add(i);
             }
-            int max = int.MaxValue, min = int.MinValue, sum = 0;
-            list.ForEach(i => Console.WriteLine($"The element{i+1} is: {i}"));
+            int max = list.Head.Data, min = list.Head.Data, sum = 0;
+             
+            list.ForEach(i => Console.WriteLine($"The element {i+1} is: {i}"));
             list.ForEach(i => max = i > max ? i : max);
             list.ForEach(i => min = min > i ? i : min);
             list.ForEach(i => sum +=i);
