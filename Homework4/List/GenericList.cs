@@ -1,7 +1,6 @@
 using System;
 namespace List
 {
-    // 链表节点
     public class Node<T>
     {
         public Node<T> Next { get; set; }
@@ -14,7 +13,6 @@ namespace List
         }
     }
 
-    //泛型链表类
     public class GenericList<T>
     {
         private Node<T> head;
