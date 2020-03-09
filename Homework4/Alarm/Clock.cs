@@ -15,6 +15,7 @@ namespace Alarm
         private int alarmMinute;
         private int alarmSecond;
 
+        //设置闹钟时间
         public void SetAlarm(int alarmHour, int alarmMinute, int alarmSecond)
         {
             this.alarmHour = alarmHour;
@@ -22,6 +23,7 @@ namespace Alarm
             this.alarmSecond = alarmSecond;
         }
 
+        //开始工作
         public void StartWork()
         {
             while (true)
@@ -38,12 +40,14 @@ namespace Alarm
             }
         }
 
+        //闹铃
         public void Alarm(int hour,int minute,int second)
         {
             AlarmEventArgs args = new AlarmEventArgs() { Hour = hour, Minute = minute, Second = second };
             AlarmEvent(this, args);
         }
 
+        //滴答
         public void Tick(int hour, int minute, int second)
         {
             TickEventArgs args = new TickEventArgs() { Hour = hour, Minute = minute, Second = second };

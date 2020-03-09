@@ -10,6 +10,30 @@ namespace List
     {
         static void Main(string[] args)
         {
+            // 整型List
+            GenericList<int> intlist = new GenericList<int>();
+            for (int x = 0; x < 10; x++)
+            {
+                intlist.Add(x);
+            }
+            for (Node<int> node = intlist.Head;
+                  node != null; node = node.Next)
+            {
+                Console.WriteLine(node.Data);
+            }
+
+            // 字符串型List
+            GenericList<string> strList = new GenericList<string>();
+            for (int x = 0; x < 10; x++)
+            {
+                strList.Add("str" + x);
+            }
+            for (Node<string> node = strList.Head;
+                    node != null; node = node.Next)
+            {
+                Console.WriteLine(node.Data);
+            }
+
             List<int> list = new List<int>();
             for(int i = 0; i < 10; i++)
             {

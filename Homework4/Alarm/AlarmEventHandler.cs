@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace Alarm
 {
+    //声明响铃委托
     public delegate void AlarmEventHandler(object sender, AlarmEventArgs args);
 }

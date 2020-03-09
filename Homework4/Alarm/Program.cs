@@ -10,19 +10,20 @@ namespace Alarm
     {
         static void Main(string[] args)
         {
-            Clock myClock = new Alarm.Clock();
-            myClock.AlarmEvent += ClockAlarm;
-            myClock.TickEvent += ClockTick;
-            myClock.SetAlarm(10, 12, 50);
+            Clock myClock = new Clock();
+            myClock.AlarmEvent += ClockAlarm;          //注册响铃方法 
+            myClock.TickEvent += ClockTick;            //注册滴答方法
+            myClock.SetAlarm(11, 7, 10); 
             myClock.StartWork();
         }
 
+        //响铃具体方法
         static public void ClockAlarm(object sender, AlarmEventArgs args)
         {
-            Console.WriteLine("ALARM!");
-            Console.WriteLine($"It's {args.Hour}:{args.Minute}:{args.Second} now.");
+            Console.WriteLine($"ALARM! It's {args.Hour}:{args.Minute}:{args.Second} now!");
         }
 
+        //滴答具体方法
         static public void ClockTick(object sender, TickEventArgs args)
         {
             Console.WriteLine($"Tick. It's {args.Hour}:{args.Minute}:{args.Second} now.");

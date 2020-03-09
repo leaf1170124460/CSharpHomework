@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace Alarm
 {
+    //声明滴答委托
     public delegate void TickEventHandler(object sender, TickEventArgs args);
 }
