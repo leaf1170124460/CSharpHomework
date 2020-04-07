@@ -13,27 +13,32 @@ namespace OrderForm
 {
     public partial class EditOrderDialog : Form
     {
-        private int mode;
-        private int index;
-        private OrderService service;
-        private Order currentOrder;
-        private OrderItem currentOrderItem;
+        private int mode;                                       //模式代码（0为修改模式，其他值为新增模式）
+        private OrderService service;                           //订单服务
+        private Order currentOrder;                             //当前订单
 
+        public string OrderCode { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhone { get; set;}
+        public string CustomerAddress { get; set; }
+        public string CommodityCode { get; set; }
+        public string CommodityName { get; set; }
+        public float CommodityPrice { get; set; }
+        public int Count { get; set; }
 
         public EditOrderDialog(int mode,int index)
         {
             InitializeComponent();
             service = MainForm.Service;
             this.mode = mode;
-            this.index = index;
-            if (mode == 1)
+            switch (mode)
             {
-                
-            }
-            else
-            {
-                currentOrder = service.OrderList[index];
-                currentOrderItem = currentOrder.Items[0];
+                case 0:
+                    currentOrder = service.OrderList[index];
+                    break;
+                default:
+                    currentOrder = new Order();
+                    break;
             }
         }
 
@@ -45,52 +50,27 @@ namespace OrderForm
             txtCustomerName.DataBindings.Add("Text", currentOrder.Customer, "Name");
             txtCustomerPhone.DataBindings.Add("Text", currentOrder.Customer, "Phone");
             txtCustomerAddress.DataBindings.Add("Text", currentOrder.Customer, "Address");
-            txtCommodityCode.DataBindings.Add("Text", currentOrderItem.Commodity, "Code");
-            txtCommodityName.DataBindings.Add("Text", currentOrderItem.Commodity, "Name");
-            txtCommodityPrice.DataBindings.Add("Text", currentOrderItem.Commodity, "Price");
-            txtCommodityCount.DataBindings.Add("Text", currentOrderItem, "Count");
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            currentOrder.Items.Add(currentOrderItem);
-            bdsDialog.ResetBindings(false);
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvDialog.RowCount > 1)
-            {
-                int index = dgvDialog.CurrentRow.Index;
-                currentOrder.Items.RemoveAt(index);
-                bdsDialog.ResetBindings(false);
-            }else
-            {
-                MessageBox.Show("At least 1 item!");
-            }
-        }
-
+        //确认添加/修改订单
         private void btnComfirm_Click(object sender, EventArgs e)
         {
-            if (mode == 1)
+            switch (mode)
             {
-                service.AddOrder(currentOrder);
-            }else
-            {
-                service.UpdateOrder(currentOrder.OrderCode, currentOrder);
+                case 0:
+                    service.UpdateOrder(OrderCode, currentOrder);
+                    break;
+                default:
+                    service.AddOrder(currentOrder);
+                    break;
             }
             DialogResult = DialogResult.OK;
         }
 
+        //取消添加/修改订单
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-        private void dgvDialog_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            //int index = dgvDialog.CurrentRow.Index;
-            //currentOrderItem = currentOrder.Items[index];
         }
     }
 }

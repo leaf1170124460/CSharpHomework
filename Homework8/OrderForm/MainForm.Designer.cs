@@ -48,6 +48,7 @@
             this.cmbCatalogue = new System.Windows.Forms.ComboBox();
             this.txtSelectValue = new System.Windows.Forms.TextBox();
             this.tlpSelect = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.tlpOtherFunction = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
@@ -64,6 +65,9 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.CommodityCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommodityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommodityPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdnOrders = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -75,19 +79,15 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblOrderTitle = new System.Windows.Forms.Label();
-            this.lblItemTitle = new System.Windows.Forms.Label();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlpDescription = new System.Windows.Forms.TableLayoutPanel();
+            this.lblOrderTitle = new System.Windows.Forms.Label();
+            this.lblItemTitle = new System.Windows.Forms.Label();
             this.orderCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsOrders = new System.Windows.Forms.BindingSource(this.components);
-            this.btnRestore = new System.Windows.Forms.Button();
-            this.CommodityCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CommodityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CommodityPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnsMain.SuspendLayout();
             this.tlpSelect.SuspendLayout();
@@ -99,7 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdnOrders)).BeginInit();
             this.bdnOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpDescription.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -245,6 +245,17 @@
             this.tlpSelect.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSelect.Size = new System.Drawing.Size(1226, 50);
             this.tlpSelect.TabIndex = 0;
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRestore.Location = new System.Drawing.Point(72, 5);
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(100, 40);
+            this.btnRestore.TabIndex = 5;
+            this.btnRestore.Text = "Restore";
+            this.btnRestore.UseVisualStyleBackColor = true;
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // tlpOtherFunction
             // 
@@ -438,6 +449,27 @@
             this.dgvItems.Size = new System.Drawing.Size(607, 451);
             this.dgvItems.TabIndex = 4;
             // 
+            // CommodityCode
+            // 
+            this.CommodityCode.DataPropertyName = "CommodityCode";
+            this.CommodityCode.HeaderText = "Code";
+            this.CommodityCode.Name = "CommodityCode";
+            this.CommodityCode.ReadOnly = true;
+            // 
+            // CommodityName
+            // 
+            this.CommodityName.DataPropertyName = "CommodityName";
+            this.CommodityName.HeaderText = "Name";
+            this.CommodityName.Name = "CommodityName";
+            this.CommodityName.ReadOnly = true;
+            // 
+            // CommodityPrice
+            // 
+            this.CommodityPrice.DataPropertyName = "CommodityPrice";
+            this.CommodityPrice.HeaderText = "Price";
+            this.CommodityPrice.Name = "CommodityPrice";
+            this.CommodityPrice.ReadOnly = true;
+            // 
             // bdnOrders
             // 
             this.bdnOrders.AddNewItem = null;
@@ -575,26 +607,47 @@
             this.dgvOrders.Size = new System.Drawing.Size(607, 451);
             this.dgvOrders.TabIndex = 3;
             // 
-            // tableLayoutPanel1
+            // Customer
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.dgvOrders, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.bdnOrders, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dgvItems, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.bdnItems, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblOrderTitle, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblItemTitle, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 78);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1226, 507);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.Customer.DataPropertyName = "CustomerName";
+            this.Customer.HeaderText = "Name";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // CustomerPhone
+            // 
+            this.CustomerPhone.DataPropertyName = "CustomerPhone";
+            this.CustomerPhone.HeaderText = "Phone";
+            this.CustomerPhone.Name = "CustomerPhone";
+            this.CustomerPhone.ReadOnly = true;
+            // 
+            // CustomerAddress
+            // 
+            this.CustomerAddress.DataPropertyName = "CustomerAddress";
+            this.CustomerAddress.HeaderText = "Address";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
+            // 
+            // tlpDescription
+            // 
+            this.tlpDescription.ColumnCount = 2;
+            this.tlpDescription.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDescription.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDescription.Controls.Add(this.dgvOrders, 0, 1);
+            this.tlpDescription.Controls.Add(this.bdnOrders, 0, 2);
+            this.tlpDescription.Controls.Add(this.dgvItems, 1, 1);
+            this.tlpDescription.Controls.Add(this.bdnItems, 1, 2);
+            this.tlpDescription.Controls.Add(this.lblOrderTitle, 0, 0);
+            this.tlpDescription.Controls.Add(this.lblItemTitle, 1, 0);
+            this.tlpDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpDescription.Location = new System.Drawing.Point(0, 78);
+            this.tlpDescription.Name = "tlpDescription";
+            this.tlpDescription.RowCount = 3;
+            this.tlpDescription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpDescription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDescription.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpDescription.Size = new System.Drawing.Size(1226, 507);
+            this.tlpDescription.TabIndex = 5;
             // 
             // lblOrderTitle
             // 
@@ -618,27 +671,6 @@
             this.lblItemTitle.TabIndex = 7;
             this.lblItemTitle.Text = "Item Detail";
             // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "CustomerName";
-            this.Customer.HeaderText = "Name";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // CustomerPhone
-            // 
-            this.CustomerPhone.DataPropertyName = "CustomerPhone";
-            this.CustomerPhone.HeaderText = "Phone";
-            this.CustomerPhone.Name = "CustomerPhone";
-            this.CustomerPhone.ReadOnly = true;
-            // 
-            // CustomerAddress
-            // 
-            this.CustomerAddress.DataPropertyName = "CustomerAddress";
-            this.CustomerAddress.HeaderText = "Address";
-            this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.ReadOnly = true;
-            // 
             // orderCodeDataGridViewTextBoxColumn1
             // 
             this.orderCodeDataGridViewTextBoxColumn1.DataPropertyName = "OrderCode";
@@ -659,38 +691,6 @@
             this.bdsOrders.DataMember = "OrderList";
             this.bdsOrders.DataSource = typeof(OrderManagement.OrderService);
             // 
-            // btnRestore
-            // 
-            this.btnRestore.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRestore.Location = new System.Drawing.Point(72, 5);
-            this.btnRestore.Name = "btnRestore";
-            this.btnRestore.Size = new System.Drawing.Size(100, 40);
-            this.btnRestore.TabIndex = 5;
-            this.btnRestore.Text = "Restore";
-            this.btnRestore.UseVisualStyleBackColor = true;
-            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
-            // 
-            // CommodityCode
-            // 
-            this.CommodityCode.DataPropertyName = "CommodityCode";
-            this.CommodityCode.HeaderText = "Code";
-            this.CommodityCode.Name = "CommodityCode";
-            this.CommodityCode.ReadOnly = true;
-            // 
-            // CommodityName
-            // 
-            this.CommodityName.DataPropertyName = "CommodityName";
-            this.CommodityName.HeaderText = "Name";
-            this.CommodityName.Name = "CommodityName";
-            this.CommodityName.ReadOnly = true;
-            // 
-            // CommodityPrice
-            // 
-            this.CommodityPrice.DataPropertyName = "CommodityPrice";
-            this.CommodityPrice.HeaderText = "Price";
-            this.CommodityPrice.Name = "CommodityPrice";
-            this.CommodityPrice.ReadOnly = true;
-            // 
             // countDataGridViewTextBoxColumn
             // 
             this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
@@ -703,7 +703,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1226, 635);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tlpDescription);
             this.Controls.Add(this.tlpOtherFunction);
             this.Controls.Add(this.tlpSelect);
             this.Controls.Add(this.mnsMain);
@@ -725,8 +725,8 @@
             this.bdnOrders.ResumeLayout(false);
             this.bdnOrders.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tlpDescription.ResumeLayout(false);
+            this.tlpDescription.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -777,7 +777,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpDescription;
         private System.Windows.Forms.Label lblOrderTitle;
         private System.Windows.Forms.Label lblItemTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderCodeDataGridViewTextBoxColumn1;

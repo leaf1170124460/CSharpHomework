@@ -10,10 +10,15 @@ namespace OrderManagement
     public class OrderItem:IComparable<OrderItem>
     {
         public Commodity Commodity { get; set; }
-        public string CommodityCode { get { return Commodity.Code; } }
-        public string CommodityName { get { return Commodity.Name; } }
-        public float CommodityPrice { get { return Commodity.Price; } }
+        public string CommodityCode { get { return Commodity.Code; } set { Commodity.Code = value; } }
+        public string CommodityName { get { return Commodity.Name; } set { Commodity.Name = value; } }
+        public float CommodityPrice { get { return Commodity.Price; } set { Commodity.Price = value; } }
         public int Count { get; set; }
+
+        public OrderItem()
+        {
+            Commodity = new Commodity();
+        }
 
         public override bool Equals(object obj)
         {
@@ -23,6 +28,10 @@ namespace OrderManagement
 
         public override int GetHashCode()
         {
+            if (Commodity.Code == null)
+            {
+                return -1;
+            }
             return int.Parse(Commodity.Code);
         }
 

@@ -9,13 +9,13 @@ namespace OrderManagement
     [Serializable]
     public class Order : IComparable<Order>
     {
-        private List<OrderItem> items=new List<OrderItem>();
+        private List<OrderItem> items;
 
         public string OrderCode { get; set; }
         public Customer Customer { get; set; }
-        public string CustomerName { get { return Customer.Name; } }
-        public string CustomerPhone { get { return Customer.Phone; } }
-        public string CustomerAddress { get { return Customer.Address; } }
+        public string CustomerName { get { return Customer.Name; }  set { Customer.Name = value; } }
+        public string CustomerPhone { get { return Customer.Phone; }  set { Customer.Phone = value; } }
+        public string CustomerAddress { get { return Customer.Address; }  set { Customer.Address = value; } }
         public List<OrderItem> Items
         {
             get { return items; }
@@ -31,6 +31,22 @@ namespace OrderManagement
                 }
                 return total;
             }
+        }
+
+        public Order()
+        {
+            items = new List<OrderItem>();
+            Customer = new Customer();
+        }
+
+        public bool AddItem(OrderItem orderItem)
+        {
+            if (!Items.Contains(orderItem))
+            {
+                Items.Add(orderItem);
+                return true;
+            }
+            return false;
         }
 
         public override bool Equals(object obj)

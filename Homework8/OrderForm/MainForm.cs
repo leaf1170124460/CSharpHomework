@@ -21,6 +21,7 @@ namespace OrderForm
         {
             InitializeComponent();
             Service = new OrderService();
+
             Order firstOrder = new Order() { OrderCode = "5", Customer = new Customer { Name = "Mike", Phone = "13845691234", Address = "Wuhan" }, Items = new List<OrderItem>() { new OrderItem() { Commodity = new Commodity() { Code = "123456", Name = "Phone", Price = 3999.0F }, Count = 2 }, new OrderItem() { Commodity = new Commodity() { Code = "123457", Name = "Pen", Price = 9.0F }, Count = 30 } } };
             Order secondOrder = new Order() { OrderCode = "4", Customer = new Customer { Name = "Amy", Phone = "13845123457", Address = "Beijing" }, Items = new List<OrderItem>() { new OrderItem() { Commodity = new Commodity() { Code = "123456", Name = "Phone", Price = 3999.0F }, Count = 1 }, new OrderItem() { Commodity = new Commodity() { Code = "123457", Name = "Pen", Price = 9.0F }, Count = 1 } } };
             Order thirdtOrder = new Order() { OrderCode = "3", Customer = new Customer { Name = "John", Phone = "13845123466", Address = "Shanghai" }, Items = new List<OrderItem>() { new OrderItem() { Commodity = new Commodity() { Code = "123456", Name = "Phone", Price = 3999.0F }, Count = 3 }, new OrderItem() { Commodity = new Commodity() { Code = "123457", Name = "Pen", Price = 9.0F }, Count = 3 } } };
@@ -32,13 +33,13 @@ namespace OrderForm
                 //添加订单
                 Service.AddOrder(firstOrder);
                 Service.AddOrder(secondOrder);
-                //Service.AddOrder(thirdtOrder);
-                //Service.AddOrder(fourthOrder);
-                //Service.AddOrder(fifthOrder);
+                Service.AddOrder(thirdtOrder);
+                Service.AddOrder(fourthOrder);
+                Service.AddOrder(fifthOrder);
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message);
             }
         }
 
