@@ -61,8 +61,8 @@ namespace OrderManagement
         //修改订单
         public bool UpdateOrder(string orderCode,Order updateOrder)
         {
-            Order deleteOrder = new Order() { OrderCode = orderCode };
-            int index = OrderList.IndexOf(deleteOrder);
+            Order updatedOrder = new Order() { OrderCode = orderCode };
+            int index = OrderList.IndexOf(updatedOrder);
             if (index == -1)
             {
                 return false;

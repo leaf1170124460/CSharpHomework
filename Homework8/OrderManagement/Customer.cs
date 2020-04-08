@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OrderManagement
 {
     [Serializable]
-    public class Customer
+    public class Customer:ICloneable
     {
         public string Name { get; set; }
         public string Phone { get; set; }
@@ -16,6 +16,15 @@ namespace OrderManagement
         public override string ToString()
         {
             return $"{Name}\t{Phone}\t{Address}";
+        }
+
+        public object Clone()
+        {
+            Customer newCustomer = new Customer();
+            newCustomer.Name = this.Name;
+            newCustomer.Phone = this.Phone;
+            newCustomer.Address = this.Address;
+            return newCustomer;
         }
     }
 }

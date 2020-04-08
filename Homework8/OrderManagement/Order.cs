@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OrderManagement
 {
     [Serializable]
-    public class Order : IComparable<Order>
+    public class Order : IComparable<Order>,ICloneable
     {
         private List<OrderItem> items;
 
@@ -78,6 +78,18 @@ namespace OrderManagement
         public int CompareTo(Order obj)
         {
             return OrderCode.CompareTo(obj.OrderCode);
+        }
+
+        public object Clone()
+        {
+            Order newOrder = new Order();
+            newOrder.OrderCode = this.OrderCode;
+            newOrder.Customer = (Customer)this.Customer.Clone();
+            for(int i = 0; i < this.Items.Count; i++)
+            {
+                newOrder.AddItem((OrderItem)this.Items[i].Clone());
+            }
+            return newOrder;
         }
     }
 }

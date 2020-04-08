@@ -13,9 +13,9 @@ namespace OrderForm
 {
     public partial class MainForm : Form
     {
-        public static OrderService Service { get; set; }
-        public String Catalogue { get; set; }
-        public String SelectValue { get; set; }
+        public static OrderService Service { get; set; }                //订单服务
+        public string Catalogue { get; set; }                           //查询类型
+        public string SelectValue { get; set; }                         //查询值
 
         public MainForm()
         {
@@ -46,6 +46,7 @@ namespace OrderForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //数据绑定
             bdsOrders.DataSource = Service.OrderList;
             cmbCatalogue.DataBindings.Add("SelectedItem", this, "Catalogue");
             txtSelectValue.DataBindings.Add("Text", this, "SelectValue");
@@ -54,9 +55,11 @@ namespace OrderForm
         //添加订单项
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //以新增模式打开窗口
             EditOrderDialog detailOrderDialog = new EditOrderDialog(1,-1);
             if (detailOrderDialog.ShowDialog() == DialogResult.OK)
             {
+                bdsOrders.DataSource = Service.OrderList;
                 bdsOrders.ResetBindings(false);
                 bdsItems.ResetBindings(false);
             }
@@ -65,10 +68,15 @@ namespace OrderForm
         //修改订单项
         private void btnModify_Click(object sender, EventArgs e)
         {
-            int index = dgvOrders.CurrentRow.Index;
+            //获取索引
+            string orderCode=(string)dgvOrders.CurrentRow.Cells[0].Value;
+            int index = Service.OrderList.IndexOf(new Order() { OrderCode = orderCode });
+
+            //模式代码0以修改模式打开窗口
             EditOrderDialog detailOrderDialog = new EditOrderDialog(0, index);
             if (detailOrderDialog.ShowDialog() == DialogResult.OK)
             {
+                bdsOrders.DataSource = Service.OrderList;
                 bdsOrders.ResetBindings(false);
                 bdsItems.ResetBindings(false);
             }
@@ -77,8 +85,16 @@ namespace OrderForm
         //查询订单
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            //提示查询条件空
+            if(Catalogue==null || SelectValue == null)
+            {
+                MessageBox.Show("Empty!");
+                return;
+            }
+            
+            //获取查询列表
             List<Order> selectedList = Service.SelectOrder(Catalogue, SelectValue).ToList();
-            if (selectedList!=null)
+            if (selectedList.Count>0)
             {
                 bdsOrders.DataSource = selectedList;
                 bdsOrders.ResetBindings(false);

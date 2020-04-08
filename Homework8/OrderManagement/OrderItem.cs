@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OrderManagement
 {
     [Serializable]
-    public class OrderItem:IComparable<OrderItem>
+    public class OrderItem:IComparable<OrderItem>,ICloneable
     {
         public Commodity Commodity { get; set; }
         public string CommodityCode { get { return Commodity.Code; } set { Commodity.Code = value; } }
@@ -45,5 +45,12 @@ namespace OrderManagement
             return Commodity.Code.CompareTo(obj.Commodity.Code);
         }
 
+        public object Clone()
+        {
+            OrderItem newOrderItem = new OrderItem();
+            newOrderItem.Commodity = (Commodity)this.Commodity.Clone();
+            newOrderItem.Count = this.Count;
+            return newOrderItem;
+        }
     }
 }

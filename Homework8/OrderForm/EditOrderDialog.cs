@@ -17,14 +17,9 @@ namespace OrderForm
         private OrderService service;                           //订单服务
         private Order currentOrder;                             //当前订单
 
-        public string OrderCode { get; set; }
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set;}
         public string CustomerAddress { get; set; }
-        public string CommodityCode { get; set; }
-        public string CommodityName { get; set; }
-        public float CommodityPrice { get; set; }
-        public int Count { get; set; }
 
         public EditOrderDialog(int mode,int index)
         {
@@ -34,7 +29,7 @@ namespace OrderForm
             switch (mode)
             {
                 case 0:
-                    currentOrder = service.OrderList[index];
+                    currentOrder = (Order)service.OrderList[index].Clone();         //深克隆，避免直接操作原数据
                     break;
                 default:
                     currentOrder = new Order();
@@ -44,6 +39,7 @@ namespace OrderForm
 
         private void DetailOrderDialog_Load(object sender, EventArgs e)
         {
+            //数据绑定
             bdsDialog.DataSource = currentOrder;
             bdsDialog.DataMember = "Items";
             txtOrderCode.DataBindings.Add("Text", currentOrder, "OrderCode");
@@ -58,10 +54,10 @@ namespace OrderForm
             switch (mode)
             {
                 case 0:
-                    service.UpdateOrder(OrderCode, currentOrder);
+                    service.UpdateOrder(currentOrder.OrderCode, currentOrder);              //模式代码为0更新订单
                     break;
                 default:
-                    service.AddOrder(currentOrder);
+                    service.AddOrder(currentOrder);                                         //其他值新增订单
                     break;
             }
             DialogResult = DialogResult.OK;

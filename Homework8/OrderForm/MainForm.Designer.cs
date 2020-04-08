@@ -54,6 +54,7 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.bdsItems = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsOrders = new System.Windows.Forms.BindingSource(this.components);
             this.bdnItems = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +69,7 @@
             this.CommodityCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommodityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommodityPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdnOrders = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -79,20 +81,19 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.orderCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpDescription = new System.Windows.Forms.TableLayoutPanel();
             this.lblOrderTitle = new System.Windows.Forms.Label();
             this.lblItemTitle = new System.Windows.Forms.Label();
-            this.orderCodeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsOrders = new System.Windows.Forms.BindingSource(this.components);
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnsMain.SuspendLayout();
             this.tlpSelect.SuspendLayout();
             this.tlpOtherFunction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnItems)).BeginInit();
             this.bdnItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -100,7 +101,6 @@
             this.bdnOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.tlpDescription.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // mnsMain
@@ -203,6 +203,7 @@
             // cmbCatalogue
             // 
             this.cmbCatalogue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCatalogue.FormattingEnabled = true;
             this.cmbCatalogue.Items.AddRange(new object[] {
             "Order Code",
@@ -312,6 +313,12 @@
             this.bdsItems.AllowNew = false;
             this.bdsItems.DataMember = "Items";
             this.bdsItems.DataSource = this.bdsOrders;
+            // 
+            // bdsOrders
+            // 
+            this.bdsOrders.AllowNew = false;
+            this.bdsOrders.DataMember = "OrderList";
+            this.bdsOrders.DataSource = typeof(OrderManagement.OrderService);
             // 
             // bdnItems
             // 
@@ -470,6 +477,13 @@
             this.CommodityPrice.Name = "CommodityPrice";
             this.CommodityPrice.ReadOnly = true;
             // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // bdnOrders
             // 
             this.bdnOrders.AddNewItem = null;
@@ -607,6 +621,13 @@
             this.dgvOrders.Size = new System.Drawing.Size(607, 451);
             this.dgvOrders.TabIndex = 3;
             // 
+            // orderCodeDataGridViewTextBoxColumn1
+            // 
+            this.orderCodeDataGridViewTextBoxColumn1.DataPropertyName = "OrderCode";
+            this.orderCodeDataGridViewTextBoxColumn1.HeaderText = "Code";
+            this.orderCodeDataGridViewTextBoxColumn1.Name = "orderCodeDataGridViewTextBoxColumn1";
+            this.orderCodeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // Customer
             // 
             this.Customer.DataPropertyName = "CustomerName";
@@ -627,6 +648,13 @@
             this.CustomerAddress.HeaderText = "Address";
             this.CustomerAddress.Name = "CustomerAddress";
             this.CustomerAddress.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "Total";
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // tlpDescription
             // 
@@ -671,33 +699,6 @@
             this.lblItemTitle.TabIndex = 7;
             this.lblItemTitle.Text = "Item Detail";
             // 
-            // orderCodeDataGridViewTextBoxColumn1
-            // 
-            this.orderCodeDataGridViewTextBoxColumn1.DataPropertyName = "OrderCode";
-            this.orderCodeDataGridViewTextBoxColumn1.HeaderText = "Code";
-            this.orderCodeDataGridViewTextBoxColumn1.Name = "orderCodeDataGridViewTextBoxColumn1";
-            this.orderCodeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "Total";
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // bdsOrders
-            // 
-            this.bdsOrders.AllowNew = false;
-            this.bdsOrders.DataMember = "OrderList";
-            this.bdsOrders.DataSource = typeof(OrderManagement.OrderService);
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            this.countDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -717,6 +718,7 @@
             this.tlpSelect.PerformLayout();
             this.tlpOtherFunction.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnItems)).EndInit();
             this.bdnItems.ResumeLayout(false);
             this.bdnItems.PerformLayout();
@@ -727,7 +729,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.tlpDescription.ResumeLayout(false);
             this.tlpDescription.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
