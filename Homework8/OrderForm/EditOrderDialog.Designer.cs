@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditOrderDialog));
             this.tlpOtherFunction = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -49,6 +49,11 @@
             this.lblOrderCode = new System.Windows.Forms.Label();
             this.txtOrderCode = new System.Windows.Forms.TextBox();
             this.dgvDialog = new System.Windows.Forms.DataGridView();
+            this.commodityCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commodityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commodityPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bdsDialog = new System.Windows.Forms.BindingSource(this.components);
             this.tlpDialog = new System.Windows.Forms.TableLayoutPanel();
             this.pnlDetail = new System.Windows.Forms.Panel();
             this.bdnDialog = new System.Windows.Forms.BindingNavigator(this.components);
@@ -64,23 +69,18 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.pnlFunction = new System.Windows.Forms.Panel();
-            this.bdsDialog = new System.Windows.Forms.BindingSource(this.components);
-            this.commodityCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commodityNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.commodityPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpOtherFunction.SuspendLayout();
             this.gbxCustomer.SuspendLayout();
             this.tlpCustomer.SuspendLayout();
             this.gbxOrder.SuspendLayout();
             this.tlpOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDialog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDialog)).BeginInit();
             this.tlpDialog.SuspendLayout();
             this.pnlDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdnDialog)).BeginInit();
             this.bdnDialog.SuspendLayout();
             this.pnlFunction.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDialog)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpOtherFunction
@@ -262,14 +262,14 @@
             this.dgvDialog.AllowUserToOrderColumns = true;
             this.dgvDialog.AutoGenerateColumns = false;
             this.dgvDialog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDialog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDialog.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDialog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDialog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.commodityCodeDataGridViewTextBoxColumn,
@@ -277,30 +277,60 @@
             this.commodityPriceDataGridViewTextBoxColumn,
             this.countDataGridViewTextBoxColumn});
             this.dgvDialog.DataSource = this.bdsDialog;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDialog.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDialog.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDialog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDialog.Location = new System.Drawing.Point(0, 0);
             this.dgvDialog.MultiSelect = false;
             this.dgvDialog.Name = "dgvDialog";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDialog.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDialog.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDialog.RowTemplate.Height = 27;
             this.dgvDialog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvDialog.Size = new System.Drawing.Size(718, 504);
             this.dgvDialog.TabIndex = 10;
+            // 
+            // commodityCodeDataGridViewTextBoxColumn
+            // 
+            this.commodityCodeDataGridViewTextBoxColumn.DataPropertyName = "CommodityCode";
+            this.commodityCodeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.commodityCodeDataGridViewTextBoxColumn.Name = "commodityCodeDataGridViewTextBoxColumn";
+            // 
+            // commodityNameDataGridViewTextBoxColumn
+            // 
+            this.commodityNameDataGridViewTextBoxColumn.DataPropertyName = "CommodityName";
+            this.commodityNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.commodityNameDataGridViewTextBoxColumn.Name = "commodityNameDataGridViewTextBoxColumn";
+            // 
+            // commodityPriceDataGridViewTextBoxColumn
+            // 
+            this.commodityPriceDataGridViewTextBoxColumn.DataPropertyName = "CommodityPrice";
+            this.commodityPriceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.commodityPriceDataGridViewTextBoxColumn.Name = "commodityPriceDataGridViewTextBoxColumn";
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
+            // bdsDialog
+            // 
+            this.bdsDialog.AllowNew = true;
+            this.bdsDialog.DataMember = "Items";
+            this.bdsDialog.DataSource = typeof(OrderManagement.Order);
             // 
             // tlpDialog
             // 
@@ -365,14 +395,14 @@
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
-            this.bindingNavigatorAddNewItem.Text = "新添";
+            this.bindingNavigatorAddNewItem.Text = "Add";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 26);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(38, 24);
             this.bindingNavigatorCountItem.Text = "/ {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "总项数";
+            this.bindingNavigatorCountItem.ToolTipText = "Total";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -380,8 +410,8 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 26);
-            this.bindingNavigatorDeleteItem.Text = "删除";
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorDeleteItem.Text = "Remove";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -389,8 +419,8 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 26);
-            this.bindingNavigatorMoveFirstItem.Text = "移到第一条记录";
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Text = "Move to First";
             // 
             // bindingNavigatorMovePreviousItem
             // 
@@ -398,13 +428,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 26);
-            this.bindingNavigatorMovePreviousItem.Text = "移到上一条记录";
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Text = "Move to Previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 29);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -413,12 +443,12 @@
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "当前位置";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current Position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 29);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -426,8 +456,8 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 26);
-            this.bindingNavigatorMoveNextItem.Text = "移到下一条记录";
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Text = "Move to Next";
             // 
             // bindingNavigatorMoveLastItem
             // 
@@ -435,13 +465,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 26);
-            this.bindingNavigatorMoveLastItem.Text = "移到最后一条记录";
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Text = "Move to Last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 29);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // pnlFunction
             // 
@@ -454,36 +484,6 @@
             this.pnlFunction.Size = new System.Drawing.Size(303, 504);
             this.pnlFunction.TabIndex = 0;
             // 
-            // bdsDialog
-            // 
-            this.bdsDialog.AllowNew = true;
-            this.bdsDialog.DataMember = "Items";
-            this.bdsDialog.DataSource = typeof(OrderManagement.Order);
-            // 
-            // commodityCodeDataGridViewTextBoxColumn
-            // 
-            this.commodityCodeDataGridViewTextBoxColumn.DataPropertyName = "CommodityCode";
-            this.commodityCodeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.commodityCodeDataGridViewTextBoxColumn.Name = "commodityCodeDataGridViewTextBoxColumn";
-            // 
-            // commodityNameDataGridViewTextBoxColumn
-            // 
-            this.commodityNameDataGridViewTextBoxColumn.DataPropertyName = "CommodityName";
-            this.commodityNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.commodityNameDataGridViewTextBoxColumn.Name = "commodityNameDataGridViewTextBoxColumn";
-            // 
-            // commodityPriceDataGridViewTextBoxColumn
-            // 
-            this.commodityPriceDataGridViewTextBoxColumn.DataPropertyName = "CommodityPrice";
-            this.commodityPriceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.commodityPriceDataGridViewTextBoxColumn.Name = "commodityPriceDataGridViewTextBoxColumn";
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Count";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            // 
             // EditOrderDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -491,7 +491,7 @@
             this.ClientSize = new System.Drawing.Size(1033, 510);
             this.Controls.Add(this.tlpDialog);
             this.Name = "EditOrderDialog";
-            this.Text = "DetailOrderDialog";
+            this.Text = "Edit Order";
             this.Load += new System.EventHandler(this.DetailOrderDialog_Load);
             this.tlpOtherFunction.ResumeLayout(false);
             this.gbxCustomer.ResumeLayout(false);
@@ -501,6 +501,7 @@
             this.tlpOrder.ResumeLayout(false);
             this.tlpOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDialog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDialog)).EndInit();
             this.tlpDialog.ResumeLayout(false);
             this.pnlDetail.ResumeLayout(false);
             this.pnlDetail.PerformLayout();
@@ -508,7 +509,6 @@
             this.bdnDialog.ResumeLayout(false);
             this.bdnDialog.PerformLayout();
             this.pnlFunction.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDialog)).EndInit();
             this.ResumeLayout(false);
 
         }
