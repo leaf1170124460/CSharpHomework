@@ -292,6 +292,7 @@
             this.ClientSize = new System.Drawing.Size(1112, 597);
             this.Controls.Add(this.pnlGraphics);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormGeyleyTree";
             this.Text = "GeyleyTree";
             ((System.ComponentModel.ISupportInitialize)(this.trbTh1)).EndInit();
