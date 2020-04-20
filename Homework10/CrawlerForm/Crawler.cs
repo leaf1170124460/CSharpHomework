@@ -85,7 +85,8 @@ namespace CrawlerForm
                     tasks[Count - 1] = task;
                 }
             }
-            Task.WaitAll(tasks);
+
+            Task.WaitAll(tasks);                                                                            //所有Task都完成才通知结束
             Inform(this, new InformEventArgs() { Url = null, Message = "结束爬取" });
         }
 
@@ -131,7 +132,7 @@ namespace CrawlerForm
                 //相对地址转为绝对地址
                 if(Regex.IsMatch(strRef, "^[//]"))
                 {
-                    strRef = uri.Scheme + strRef;                               //以“//”开头的相对地址转换为绝对地址
+                    strRef = uri.Scheme + ":" + strRef;                          //以“//”开头的相对地址转换为绝对地址
                 }
                 else if (Regex.IsMatch(strRef, "^[/]"))                              
                 {

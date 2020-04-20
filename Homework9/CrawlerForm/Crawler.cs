@@ -23,6 +23,7 @@ namespace CrawlerForm
             Count = 0;
         }
 
+        //启动
         public void Start()
         {
             
@@ -34,6 +35,7 @@ namespace CrawlerForm
             {
                 Inform(this, new InformEventArgs() { Url = StartUrl, Message = "已存在" });
             }
+
             Inform(this, new InformEventArgs() { Url = null, Message = "开始爬取" });
             while (true)
             {
@@ -47,6 +49,7 @@ namespace CrawlerForm
 
                 if (currentUrl == null || Count > 10)
                     break;
+
                 string html = Download(currentUrl);
                 Urls[currentUrl] = true;
                 Count++;
@@ -93,7 +96,11 @@ namespace CrawlerForm
                 Uri uri = new Uri(currentUrl);
                 string domain = uri.Scheme+ "://" + uri.Host;
 
-                if (Regex.IsMatch(strRef, "^[/]"))                              
+                if (Regex.IsMatch(strRef, "^[//]"))
+                {
+                    strRef = uri.Scheme + ":" + strRef;                         //以“//”开头的相对地址转换为绝对地址
+                }
+                else if (Regex.IsMatch(strRef, "^[/]"))                              
                 {
                    
                     strRef = domain + strRef;                                   //以“/”开头的相对地址转换为绝对地址
