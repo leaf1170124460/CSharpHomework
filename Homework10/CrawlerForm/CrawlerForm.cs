@@ -43,7 +43,7 @@ namespace CrawlerForm
             }
         }
 
-        //并行模式更行界面
+        //并行模式更新界面
         private void CrawlerInformParallel(object o, InformEventArgs e)
         {
             //以线程安全方式更新界面
