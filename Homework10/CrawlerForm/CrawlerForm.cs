@@ -29,6 +29,7 @@ namespace CrawlerForm
             StartUrl = "https://www.cnblogs.com/dstang2000/";
         }
 
+        //普通模式更新界面
         private void CrawlerInform(object o, InformEventArgs e)
         {
             //以线程安全方式更新界面
@@ -42,6 +43,7 @@ namespace CrawlerForm
             }
         }
 
+        //并行模式更行界面
         private void CrawlerInformParallel(object o, InformEventArgs e)
         {
             //以线程安全方式更新界面
@@ -52,10 +54,11 @@ namespace CrawlerForm
             }
             else
             {
-                AddResult(e);
+                AddResultParallel(e);
             }
         }
 
+        //普通模式增加结果
         private void AddResult(InformEventArgs e)
         {
             if (e.Url == null)
@@ -68,6 +71,7 @@ namespace CrawlerForm
             }
         }
 
+        //并行模式增加结果
         private void AddResultParallel(InformEventArgs e)
         {
             if (e.Url == null)
@@ -82,6 +86,7 @@ namespace CrawlerForm
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            //初始化
             lsbMain.Items.Clear();
             lsbParallel.Items.Clear();
             Crawler.Urls.Clear();
@@ -90,6 +95,8 @@ namespace CrawlerForm
             CrawlerParallel.Count = 0;
             Crawler.StartUrl = StartUrl;
             CrawlerParallel.StartUrl = StartUrl;
+
+            //启动
             Thread thread = new Thread(Crawler.Start);
             Thread threadParallel = new Thread(CrawlerParallel.StartParallel);
             thread.Start();
