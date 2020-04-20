@@ -64,7 +64,9 @@ namespace CrawlerForm
             }
 
             Inform(this, new InformEventArgs() { Url = null, Message = "开始爬取" });
-            while (Count<10)
+
+            bool isAllCompeted = false;                                                         //任务完成标志位
+            while (Count<10&&isAllCompeted==false)
             {
                 string currentUrl = null;
                 foreach(string url in Urls.Keys)
@@ -84,9 +86,21 @@ namespace CrawlerForm
                     });
                     tasks[Count - 1] = task;
                 }
+
+                //遍历所有任务，若都完成则退出循环，适用于爬取网址数少于10的情况                                                            
+                int i = 0 ;
+                while (i < Count&&tasks[i].IsCompleted) { i++; }                      
+                if (i >= Count)
+                {
+                   isAllCompeted = true;
+                }
             }
 
-            Task.WaitAll(tasks);                                                                            //所有Task都完成才通知结束
+            //适用于爬取数量大于等于10的情况，Task创建速度快于Count增加速度，需要等待所有Task完成
+            if (isAllCompeted == false)
+            {
+                Task.WaitAll(tasks);
+            }
             Inform(this, new InformEventArgs() { Url = null, Message = "结束爬取" });
         }
 
