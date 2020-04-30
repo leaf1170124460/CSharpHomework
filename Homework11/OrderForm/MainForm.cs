@@ -123,7 +123,6 @@ namespace OrderForm
             
         }
 
-
         //恢复订单列表
         private void btnRestore_Click(object sender, EventArgs e)
         {
@@ -131,7 +130,6 @@ namespace OrderForm
             bdsOrders.ResetBindings(false);
             bdsItems.ResetBindings(false);
         }
-
 
         //移除订单
         private void btnRemove_Click(object sender, EventArgs e)
