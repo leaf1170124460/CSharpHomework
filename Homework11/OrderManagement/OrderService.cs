@@ -49,9 +49,9 @@ namespace OrderManagement
             {
                 var oldOrder = db.Orders.
                     Include(o => o.Items).
-                            Include(o => o.Customer).
-                            Include(o => o.Items.Select(i => i.Commodity))
-                            .FirstOrDefault(o => o.OrderCode == orderCode);
+                    Include(o => o.Customer).
+                    Include(o => o.Items.Select(i => i.Commodity)).
+                    FirstOrDefault(o => o.OrderCode == orderCode);
 
                 if (oldOrder != null)
                 {
