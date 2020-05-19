@@ -7,21 +7,11 @@ using System.Text;
 [Serializable]
 public class Order : IComparable<Order>, ICloneable
 {
-    private List<OrderItem> items;
-
     [Key]
     public long OrderCode { get; set; }
     public long CustomerId{get;set;}
-
-    [ForeignKey("CustomerId")]
     public Customer Customer { get; set; }
-
-
-    public List<OrderItem> Items
-    {
-        get { return items; }
-        set { items = value; }
-    }
+    public virtual List<OrderItem> Items{get;set;}
     [NotMapped]
     public float Total
     {
@@ -30,16 +20,10 @@ public class Order : IComparable<Order>, ICloneable
             float total = 0.0F;
             foreach (OrderItem e in Items)
             {
-                total += e.Commodity.Price * e.Count;
+                total += e.Commodity==null?0:e.Commodity.Price * e.Count;
             }
             return total;
         }
-    }
-
-    public Order()
-    {
-        items = new List<OrderItem>();
-        Customer = new Customer();
     }
 
     public override bool Equals(object obj)

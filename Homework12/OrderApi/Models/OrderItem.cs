@@ -9,17 +9,10 @@ public class OrderItem : IComparable<OrderItem>, ICloneable
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long Id { get; set; }
+    public long OrderId{get;set;}
     public long CommodityId{get;set;}
-
-    [ForeignKey("CommodityId")]
     public Commodity Commodity { get; set; }
-
     public int Count { get; set; }
-
-    public OrderItem()
-    {
-        Commodity = new Commodity();
-    }
 
     public override bool Equals(object obj)
     {

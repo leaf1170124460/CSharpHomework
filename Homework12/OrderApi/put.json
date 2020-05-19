@@ -1,0 +1,107 @@
+[
+    {
+        "orderCode": 1,
+        "customerId": 101,
+        "customer": {
+            "id": 101,
+            "name": "Amy",
+            "phone": "13845123457",
+            "address": "Beijing"
+        },
+        "items": [
+            {
+                "id": 3,
+                "orderId": 1,
+                "commodityId": 123457,
+                "commodity": {
+                    "id": 123457,
+                    "name": "Pen",
+                    "price": 9.5
+                },
+                "count": 1
+            },
+            {
+                "id": 4,
+                "orderId": 1,
+                "commodityId": 123458,
+                "commodity": {
+                    "id": 123458,
+                    "name": "Earphone",
+                    "price": 399.9
+                },
+                "count": 10
+            }
+        ],
+        "total": 4008.5
+    },
+    {
+        "orderCode": 3,
+        "customerId": 103,
+        "customer": {
+            "id": 103,
+            "name": "Bob",
+            "phone": "13845123156",
+            "address": "Guangzhou"
+        },
+        "items": [
+            {
+                "id": 5,
+                "orderId": 3,
+                "commodityId": 123456,
+                "commodity": {
+                    "id": 123456,
+                    "name": "Phone",
+                    "price": 3999.9
+                },
+                "count": 1
+            },
+            {
+                "id": 6,
+                "orderId": 3,
+                "commodityId": 123458,
+                "commodity": {
+                    "id": 123458,
+                    "name": "Earphone",
+                    "price": 399.9
+                },
+                "count": 10
+            }
+        ],
+        "total": 7998.9
+    },
+    {
+        "orderCode": 2,
+        "customerId": 100,
+        "customer": {
+            "id": 100,
+            "name": "Mike",
+            "phone": "13845691234",
+            "address": "Wuhan"
+        },
+        "items": [
+            {
+                "id": 1,
+                "orderId": 2,
+                "commodityId": 123457,
+                "commodity": {
+                    "id": 123457,
+                    "name": "Pen",
+                    "price": 9.5
+                },
+                "count": 31
+            },
+            {
+                "id": 2,
+                "orderId": 2,
+                "commodityId": 123456,
+                "commodity": {
+                    "id": 123456,
+                    "name": "Phone",
+                    "price": 3999.9
+                },
+                "count": 2
+            }
+        ],
+        "total": 8294.3
+    }
+]

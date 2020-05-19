@@ -7,10 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class Commodity : ICloneable
 {
     public long Id { get; set; }
-
-    [Required]
     public string Name { get; set; }
-
     public float Price { get; set; }
 
     public object Clone()

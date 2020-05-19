@@ -13,50 +13,16 @@ public class OrderController : ControllerBase
     public OrderController(OrderContext context)
     {
         this.orderDb = context;
-
-        /*
-        //初始化数据
-        Customer mike = new Customer {Id=100L,Name = "Mike", Phone = "13845691234", Address = "Wuhan" };
-        Customer amy = new Customer {Id=101L,Name = "Amy", Phone = "13845123457", Address = "Beijing" };
-        Customer john = new Customer {Id=102L, Name = "John", Phone = "13845123466", Address = "Shanghai" };
-        Customer bob = new Customer { Id=103L,Name = "Bob", Phone = "13845123156", Address = "Guangzhou" };
-
-        orderDb.Customers.Add(mike);
-        orderDb.Customers.Add(amy);
-        orderDb.Customers.Add(john);
-        orderDb.Customers.Add(bob);
-        orderDb.SaveChanges();
-
-        Commodity phone = new Commodity() { Id=123456L,Name = "Phone", Price = 3999.9F };
-        Commodity pen = new Commodity() {Id=123457L,Name = "Pen", Price = 9.5F };
-        Commodity earphone = new Commodity() {Id=123458L,Name = "Earphone", Price = 399.9F };
-
-        orderDb.Commodities.Add(phone);
-        orderDb.Commodities.Add(pen);
-        orderDb.Commodities.Add(earphone);
-        orderDb.SaveChanges();
-
-        Order firstOrder = new Order() { OrderCode=1L,CustomerId = mike.Id,Customer=mike,Items = new List<OrderItem>() { new OrderItem() { CommodityId = phone.Id,Commodity=null, Count = 2 }, new OrderItem() { CommodityId = pen.Id,Commodity=null, Count = 30 } } };
-        Order secondOrder = new Order() { OrderCode=2L,CustomerId = amy.Id,Customer=amy, Items = new List<OrderItem>() { new OrderItem() { CommodityId = phone.Id,Commodity=null, Count = 1 }, new OrderItem() { CommodityId = pen.Id,Commodity=null, Count = 1 } } };
-        Order thirdtOrder = new Order() { OrderCode=3L,CustomerId = john.Id,Customer=john, Items = new List<OrderItem>() { new OrderItem() { CommodityId = earphone.Id,Commodity=null, Count = 3 }, new OrderItem() { CommodityId = pen.Id,Commodity=null, Count = 3 } } };
-        Order fourthOrder = new Order() { OrderCode=4L,CustomerId = bob.Id,Customer=bob, Items = new List<OrderItem>() { new OrderItem() { CommodityId = phone.Id,Commodity=null, Count = 4 }, new OrderItem() { CommodityId = pen.Id,Commodity=null, Count = 6 } } };
-        Order fifthOrder = new Order() { OrderCode=5L,CustomerId = amy.Id,Customer=amy, Items = new List<OrderItem>() { new OrderItem() { CommodityId = phone.Id,Commodity=null, Count = 5 }, new OrderItem() { CommodityId = pen.Id,Commodity=null, Count = 10 } } };
-
-        this.AddOrder(firstOrder);
-        this.AddOrder(secondOrder);
-        this.AddOrder(thirdtOrder);
-        this.AddOrder(fourthOrder);
-        this.AddOrder(fifthOrder);
-        */
-
     }
 
     //添加订单
     [HttpPost]
-    public ActionResult<Order> AddOrder(Order newOrder)
+    public ActionResult<Order> PostOrder(Order newOrder)
     {
         try
         {
+            newOrder.Customer=null;
+            newOrder.Items.ForEach(i=>i.Commodity=null);
             orderDb.Orders.Add(newOrder);
             orderDb.SaveChanges();
         }
@@ -104,24 +70,25 @@ public class OrderController : ControllerBase
     //修改订单
     //PUT: api/order/{orderCode}  orderCode为路径参数
     [HttpPut("{orderCode}")]
-    public ActionResult<Order> UpdateOrder(long orderCode, Order updateOrder)
+    public ActionResult<Order> PutOrder(long orderCode, Order updateOrder)
     {
         try
         {
-            Order oldOrder = orderDb.Orders.
-                            Include(o => o.Customer).
-                            Include(o => o.Items).
-                                ThenInclude(i => i.Commodity).
-                            FirstOrDefault(order => order.OrderCode == orderCode);
-
-
-            if (oldOrder != null)
-            {
-                oldOrder.Customer = updateOrder.Customer;
-                oldOrder.Items = updateOrder.Items;
-                orderDb.Entry(oldOrder).State = EntityState.Modified;
-                orderDb.SaveChanges();
+            if(orderCode!=updateOrder.OrderCode){
+                return BadRequest("Order code can't be modified.");
             }
+
+            //移除旧订单项
+            var oldItems=orderDb.OrderItems.Where(i=>i.OrderId==orderCode);
+            orderDb.OrderItems.RemoveRange(oldItems);
+
+            //添加修改后的订单项
+            updateOrder.Items.ForEach(i=>i.Commodity=null);
+            orderDb.OrderItems.AddRange(updateOrder.Items);
+
+            //订单标记为修改
+            orderDb.Entry(updateOrder).State = EntityState.Modified;
+            orderDb.SaveChanges();
         }
         catch (Exception e)
         {
@@ -139,7 +106,7 @@ public class OrderController : ControllerBase
     //GET: api/order
     //GET: api/order?customerName=Mike&commodityName=Phone
     [HttpGet]
-    public ActionResult<List<Order>> SelectOrders(string customerName, string commodityName)
+    public ActionResult<List<Order>> GetOrders(string customerName, string commodityName)
     {
         IQueryable<Order> query = BuildQuery(customerName, commodityName);
         List<Order> orderList = query.ToList();
